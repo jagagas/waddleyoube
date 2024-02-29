@@ -8,7 +8,7 @@ let numDucks = 6;
 let ducks = [];
 let mySound;
 
-function preload(){
+function preload() {
   soundFormats('mp3');
   mySound = loadSound('quack');
   defaultDuck = loadImage("defaultduck.png");
@@ -18,8 +18,8 @@ function preload(){
   goose = loadImage("goose.png");
   sleepyDuck = loadImage("sleepyduck.png");
   ducks = [defaultDuck, angelDuck, clownDuck, devilDuck, goose, sleepyDuck];
+}
 
-} 
 function setup() {
   createCanvas(800, 500);
   background('orange');
@@ -37,16 +37,14 @@ function setup() {
   text('waddle you be?', centerX - textWidth('waddle you be?') / 2, centerY);
 }
 
-
 function keyTyped() {
-  background('lightblue'); // Clear the background before drawing a new duck
-  let randoImg = random(ducks);
-  image(randoImg, 210, 120, 290, 300);
-  mySound.play();
+  if (keyCode === 32) {
+    startGame();
+  }
 }
 
-function keyTyped() {
-  background('lightblue'); // Clear the background before drawing a new duck
+function startGame() {
+  background('lightblue');
   let randoImg = random(ducks);
   image(randoImg, 210, 120, 290, 300);
   mySound.play();
